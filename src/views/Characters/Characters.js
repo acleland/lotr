@@ -1,6 +1,7 @@
 import React from 'react';
 import { fetchCharacters } from '../../services/characters';
 import { useState, useEffect } from 'react';
+import RaceSelect from '../../components/RaceSelect/RaceSelect';
 
 export default function Characters() {
   const [characters, setCharacters] = useState([]);
@@ -13,11 +14,23 @@ export default function Characters() {
     getCharacters();
   }, []);
 
+  const [race, setRace] = useState('All');
+
+  const onChange = (e) => {
+    setRace(e.target.value);
+  };
+
   return (
-    <div>
-      {characters.map((c) => (
-        <p key={c.id}>{c.name}</p>
-      ))}
+    <div className="view">
+      <h1>Characters</h1>
+      <RaceSelect {...{ onChange }} />
+      <ul className="list-container">
+        {characters
+          .filter((char) => race === 'All' || char.race === race)
+          .map((char) => (
+            <li key={char.id}>{char.name}</li>
+          ))}
+      </ul>
     </div>
   );
 }

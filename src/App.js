@@ -10,8 +10,8 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <div>
-          <Nav />
+        <Nav />
+        <div className="view-container">
           <Switch>
             <Route exact path="/">
               <Main />

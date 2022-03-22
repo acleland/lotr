@@ -13,11 +13,13 @@ export default function Books() {
   }, []);
 
   return (
-    <div>
+    <div className="view">
       <h1>Books</h1>
-      {books.map((book) => (
-        <p key={book.id}>{book.title}</p>
-      ))}
+      <ul className="list-container">
+        {books.map((book) => (
+          <li key={book.id}>{book.title}</li>
+        ))}
+      </ul>
     </div>
   );
 }

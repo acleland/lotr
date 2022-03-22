@@ -12,11 +12,13 @@ export default function Films() {
   }, []);
 
   return (
-    <div>
+    <div className="view">
       <h1>Films</h1>
-      {films.map((f) => (
-        <p key={f.id}>{f.title}</p>
-      ))}
+      <ul className="list-container">
+        {films.map((f) => (
+          <li key={f.id}>{f.title}</li>
+        ))}
+      </ul>
     </div>
   );
 }
